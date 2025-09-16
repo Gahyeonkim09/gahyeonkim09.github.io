@@ -6,30 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #f7f7fb;
-      --card: #ffffff;
-      --text: #222;
-      --muted: #6b7280;
-      --accent: #0f62fe;
-      --border: #e5e7eb;
-      --shadow: 0 10px 30px rgba(0,0,0,.07);
+      --bg: #f7f7fb; --card: #ffffff; --text: #222; --muted: #6b7280;
+      --accent: #0f62fe; --border: #e5e7eb; --shadow: 0 10px 30px rgba(0,0,0,.07);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: var(--bg); color: var(--text); line-height: 1.6;
-    }
-    header {
-      padding: 2.5rem 1rem; text-align: center; background: #111827; color: #fff;
-    }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background: var(--bg); color: var(--text); line-height: 1.6; }
+    header { padding: 2.5rem 1rem; text-align: center; background: #111827; color: #fff; }
     header h1 { margin: 0; font-size: 2rem; }
     header p { margin: .4rem 0 0; color: #cbd5e1; }
     main { max-width: 960px; margin: 0 auto; padding: 2rem 1rem 3rem; }
-    section {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 1.25rem 1rem; margin-top: 1rem;
-    }
+    section { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem 1rem; margin-top: 1rem; }
     h2 { margin: 0 0 .75rem; font-size: 1.15rem; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -38,15 +25,9 @@
     .subtle { color: var(--muted); }
     .grid-2 { display: grid; gap: 1rem; grid-template-columns: 1fr; }
     @media (min-width: 860px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-    .pill {
-      display: inline-block; padding: .3rem .6rem; border-radius: 999px;
-      background: #eef2ff; color: #3730a3; font-size: .85rem; border: 1px solid #e0e7ff;
-    }
-    .callout {
-      border-left: 4px solid #dbeafe; background: #f8fbff; padding: .8rem 1rem; border-radius: 10px;
-    }
-    /* International 논문 카드 간격 */
-    .pub-international .callout + .callout { margin-top: 1rem; }
+    .pill { display: inline-block; padding: .3rem .6rem; border-radius: 999px; background: #eef2ff; color: #3730a3; font-size: .85rem; border: 1px solid #e0e7ff; }
+    .callout { border-left: 4px solid #dbeafe; background: #f8fbff; padding: .8rem 1rem; border-radius: 10px; }
+    .pub-international .callout + .callout { margin-top: 1rem; } /* 국제 논문 간격 */
     .pub-links { margin-top: .4rem; font-size: .95rem; }
     .pub-links a { margin-right: .8rem; }
     .edu-item { margin-bottom: .9rem; }
@@ -54,79 +35,68 @@
     .where { color: var(--muted); }
     .dash { color: var(--muted); padding: 0 .25rem; }
 
-    /* ===== Floating TOC (Site Map) ===== */
+    /* ===== Profile block (Intro 위) ===== */
+    .profile {
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1rem;
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 1.2rem 1rem; margin-top: 1rem;
+    }
+    .avatar {
+      width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--border); box-shadow: var(--shadow);
+    }
+    .profile-cta { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .6rem 1rem; border-radius: 999px; border: none; cursor: pointer;
+      background: var(--accent); color: #fff; font-weight: 600; text-decoration: none;
+      box-shadow: 0 6px 16px rgba(15,98,254,.18);
+    }
+    .btn:hover { filter: brightness(0.96); }
+    .btn:focus { outline: 3px solid rgba(15,98,254,.35); outline-offset: 2px; }
+
+    /* ===== Floating TOC (작게) ===== */
     .toc {
-      position: fixed; right: 20px; top: 88px;
-      width: 250px; max-height: 70vh; overflow: auto;
-      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-      box-shadow: var(--shadow); padding: .8rem .8rem;
+      position: fixed; right: 16px; top: 84px;
+      width: 200px; max-height: 68vh; overflow: auto;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      box-shadow: var(--shadow); padding: .6rem .6rem; font-size: .9rem;
     }
-    .toc h3 { margin: 0 0 .4rem; font-size: .98rem; }
-    .toc a {
-      display: block; padding: .35rem .5rem; border-radius: 10px; color: var(--text);
-      text-decoration: none; border: 1px solid transparent;
-    }
+    .toc h3 { margin: 0 0 .3rem; font-size: .92rem; }
+    .toc a { display: block; padding: .25rem .4rem; border-radius: 8px; color: var(--text); text-decoration: none; border: 1px solid transparent; }
     .toc a:hover { background: #f3f4f6; border-color: #e5e7eb; }
     .toc a.active { background: #eef2ff; border-color: #e0e7ff; color: #3730a3; }
-    .toc small { display:block; color: var(--muted); margin-bottom: .3rem; }
+    .toc small { display:block; color: var(--muted); margin-bottom: .25rem; font-size: .8rem; }
 
-    /* 모바일: 숨기고 토글 버튼으로 열기 */
     .toc-toggle {
-      position: fixed; right: 16px; bottom: 16px; z-index: 99;
+      position: fixed; right: 12px; bottom: 12px; z-index: 99;
       background: #111827; color: #fff; border: none; border-radius: 999px;
-      padding: .7rem 1rem; box-shadow: var(--shadow); cursor: pointer;
+      padding: .6rem .9rem; box-shadow: var(--shadow); cursor: pointer; font-size: .95rem;
     }
     @media (max-width: 1100px) {
       .toc { display: none; }
-      .toc.open { display: block; right: 16px; bottom: 72px; top: auto; width: min(88vw, 320px); }
+      .toc.open { display: block; right: 12px; bottom: 64px; top: auto; width: min(76vw, 280px); }
       .toc small { display: none; }
       .toc-toggle { display: inline-flex; }
     }
     @media (min-width: 1101px) {
       .toc-toggle { display: none; }
-      main { padding-right: 300px; } /* 본문이 TOC와 겹치지 않게 여백 */
+      main { padding-right: 240px; } /* 줄인 TOC 폭에 맞춰 여백도 축소 */
     }
 
-    /* ===== Footer 중앙 정렬 ===== */
-    footer {
-      max-width: 960px; margin: 1.5rem auto 3rem; padding: 0 1rem;
-      color: var(--muted); font-size: .92rem; text-align: center;
-    }
+    /* Footer 중앙 정렬 */
+    footer { max-width: 960px; margin: 1.5rem auto 3rem; padding: 0 1rem; color: var(--muted); font-size: .92rem; text-align: center; }
     footer p { margin: .25rem 0; }
     footer em { font-style: italic; }
 
-    /* ===== Toggle(Accordion) for Accomplishments ===== */
-    details.accordion {
-      margin: .5rem 0;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: #fafafa;
-      padding: .25rem .5rem .5rem;
-    }
-    details.accordion[open] {
-      background: #f0f7ff;
-      border-color: #dbeafe;
-    }
-    details.accordion > summary {
-      list-style: none;
-      cursor: pointer;
-      padding: .5rem;
-      border-radius: 10px;
-      font-weight: 600;
-      display: flex; align-items: center; gap: .5rem;
-      outline: none;
-    }
+    /* Toggle(Accordion) for Accomplishments */
+    details.accordion { margin: .5rem 0; border: 1px solid var(--border); border-radius: 12px; background: #fafafa; padding: .25rem .5rem .5rem; }
+    details.accordion[open] { background: #f0f7ff; border-color: #dbeafe; }
+    details.accordion > summary { list-style: none; cursor: pointer; padding: .5rem; border-radius: 10px; font-weight: 600; display: flex; align-items: center; gap: .5rem; outline: none; }
     details.accordion > summary::-webkit-details-marker { display: none; }
-    details.accordion > summary::before {
-      content: "▸";
-      font-size: .9rem;
-      transition: transform .2s ease;
-      color: #374151;
-    }
+    details.accordion > summary::before { content: "▸"; font-size: .9rem; transition: transform .2s ease; color: #374151; }
     details.accordion[open] > summary::before { transform: rotate(90deg); }
-    details.accordion .inner {
-      padding: .25rem .75rem .25rem 1.4rem;
-    }
+    details.accordion .inner { padding: .25rem .75rem .25rem 1.4rem; }
     details.accordion .inner ul { margin-top: .35rem; }
   </style>
 </head>
@@ -136,7 +106,7 @@
     <p>Computer Vision · Multimodal AI · Prompt Learning</p>
   </header>
 
-  <!-- Floating TOC -->
+  <!-- Floating TOC (smaller) -->
   <nav class="toc" id="toc">
     <h3>Site Map</h3>
     <small>Jump to section</small>
@@ -157,6 +127,16 @@
   <button class="toc-toggle" aria-expanded="false" aria-controls="toc">☰ Map</button>
 
   <main>
+    <!-- Profile block (image + CV) -->
+    <section class="profile" aria-label="Profile">
+      <img class="avatar" src="images/profile.jpg" alt="Portrait of Gahyeon Kim" loading="lazy" />
+      <div class="profile-cta">
+        <a class="btn" href="cv.pdf" download>
+          ⬇️ Download CV
+        </a>
+      </div>
+    </section>
+
     <!-- Intro -->
     <section id="intro">
       <h2>👋 Introduction</h2>
@@ -305,8 +285,6 @@
           <li>Completed courses in Python, Linear Algebra, Deep Learning, and Natural Language Processing.</li>
           <li>Led three team projects: (1) Text sentiment classification, (2) Korean MRC (QA), (3) Cultural background–aware Korean–English translator.</li>
         </ul>
-
-        <!-- ⬇️ 토글: Accomplishments -->
         <details class="accordion">
           <summary>Accomplishments</summary>
           <div class="inner">
@@ -314,7 +292,7 @@
               <li><b>Project 1 — Sentiment Classification</b>: Parameter tuning &amp; ensemble; RoBERTa/ELECTRA 추가. <b>3rd / 8 teams</b>.
                 <div class="pub-links">
                   <a href="https://colab.research.google.com/drive/19mFqV_DPbhZ5-0YOim7bKOPCxNYvU69z?usp=sharing" target="_blank">Colab</a>
-                  <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/a10d98ee-9f40-4b1c-b66e-19a6ac6de7a8/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B31_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%84%90%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
+                  <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/a10d98ee-9f40-4b1c-b66e-19a6ac6de7a8/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%85%90%E1%84%90%E1%85%B31_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%84%90%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
                 </div>
               </li>
               <li><b>Project 2 — Korean MRC (QA)</b>: T5 + Levenshtein/cosine loss. <b>2nd / 8 teams</b>.
@@ -325,7 +303,7 @@
               <li><b>Project 3 — EN↔KR Translator</b>: Demo &amp; slides.
                 <div class="pub-links">
                   <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/99bb50e7-7f93-46c6-bce9-17d3e5d763a0/%E1%84%87%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%A8%E1%84%80%E1%85%B5_%E1%84%86%E1%85%A9%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%86%BC.mp4" target="_blank">Demo (MP4)</a>
-                  <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/d39447ae-e199-4fe5-9e45-53c0d81e8d57/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%85%90%E1%84%90%E1%85%B33_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%84%90%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
+                  <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/d39447ae-e199-4fe5-9e45-53c0d81e8d57/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B33_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%84%90%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
                 </div>
               </li>
             </ul>
@@ -342,8 +320,6 @@
           <li>Developed a chatbot with 1,100 interactions in 2 weeks; conducted 600+ user interviews.</li>
           <li>Received a $30,000 investment proposal via VC pitching.</li>
         </ul>
-
-        <!-- ⬇️ 토글: Accomplishments -->
         <details class="accordion">
           <summary>Accomplishments</summary>
           <div class="inner">
@@ -410,7 +386,7 @@
           <span class="dash">|</span> May 2022</div>
         <ul>
           <li>Neural Style Transfer project using a fine-tuned ResNet18 (ImageNet) to improve style classification by 4.6% and enhance stylization quality.</li>
-          <li>Poster (KR): <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/ce3b91c0-3ed5-41ad-816d-fea561747bd0/%E1%84%8F%E1%85%A2%E1%86%B8%E1%84%89%E1%85%B3%E1%84%90%E1%85%A9%E1%86%AB_%E1%84%91%E1%85%A9%E1%84%89%E1%85%B3%E1%84%85%E1%85%A5_%E1%84%80%E1%85%B5%E1%86%B7%E1%84%80%E1%85%A1%E1%84%92%E1%85%A7%E1%86%AB.pdf" target="_blank">PDF</a></li>
+          <li>Poster (KR): <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/ce3b91c0-3ed5-41ad-816d-fea561747bd0/%E1%84%8F%E1%85%A2%E1%86%B8%E1%84%89%E1%85%B3%E1%84%90%E1%85%A9%E1%86%AB_%E1%84%91%E1%85%A9%E1%84%89%E1%85%B3%E1%85%B3_%E1%84%80%E1%85%B5%E1%86%B7%E1%84%80%E1%85%A1%E1%84%92%E1%85%A7%E1%86%AB.pdf" target="_blank">PDF</a></li>
         </ul>
       </div>
 
@@ -458,15 +434,14 @@
     </section>
   </main>
 
-  <!-- Footer (중앙 정렬) -->
+  <!-- Footer -->
   <footer>
     <p><em>* Unauthorized use or misuse of personal information is strictly prohibited. *</em></p>
     <p>I certify that this vitae is accurate and complete. — Sep. 16th, 2025 (latest update)</p>
   </footer>
 
-  <!-- 스크립트: 모바일 TOC 토글 & 활성 섹션 하이라이트 -->
   <script>
-    // TOC 토글 (모바일)
+    // TOC toggle (mobile)
     const toc = document.getElementById('toc');
     const toggleBtn = document.querySelector('.toc-toggle');
     toggleBtn.addEventListener('click', () => {
@@ -474,10 +449,9 @@
       toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
-    // 스크롤 위치에 따라 TOC 링크 하이라이트
+    // Scroll highlight
     const links = Array.from(toc.querySelectorAll('a[href^="#"]'));
     const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const id = '#' + entry.target.id;
@@ -490,7 +464,6 @@
         }
       });
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
-
     targets.forEach(t => obs.observe(t));
   </script>
 </body>
