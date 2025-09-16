@@ -43,12 +43,23 @@
     .callout {
       border-left: 4px solid #dbeafe; background: #f8fbff; padding: .8rem 1rem; border-radius: 10px;
     }
+    /* ⬇️ International 논문 카드 간격 */
+    .pub-international .callout + .callout { margin-top: 1rem; }
+
     .pub-links { margin-top: .4rem; font-size: .95rem; }
     .pub-links a { margin-right: .8rem; }
     .edu-item { margin-bottom: .9rem; }
     .role { font-weight: 600; }
     .where { color: var(--muted); }
     .dash { color: var(--muted); padding: 0 .25rem; }
+
+    /* ⬇️ 하단 문구 */
+    footer {
+      max-width: 960px; margin: 1.5rem auto 3rem; padding: 0 1rem;
+      color: var(--muted); font-size: .92rem;
+    }
+    footer p { margin: .25rem 0; }
+    footer em { font-style: italic; }
   </style>
 </head>
 <body>
@@ -79,7 +90,7 @@
       <section id="personal-info">
         <h2>☎️ Personal Information</h2>
         <ul>
-          <li>📧 Email: <a href="mailto:gahyeon@kentech.ac.kr">gahyeon@kentech.ac.kr</a></li>
+          <li>📧 Email: <a href="mailto:gahyeon@kentech.ac.kr">gahy eon@kentech.ac.kr</a></li>
           <li>👾 GitHub: <a href="https://github.com/Gahyeonkim09" target="_blank">github.com/Gahyeonkim09</a></li>
           <li>📥 LinkedIn: <a href="https://www.linkedin.com/in/gahyeon-kim-a86710241/" target="_blank">linkedin.com/in/gahyeon-kim-a86710241</a></li>
           <li>📚 Google Scholar: <a href="https://scholar.google.com/citations?user=7p0Fd-oAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
@@ -122,22 +133,23 @@
       <h2>📝 Publications</h2>
 
       <h3 class="subtle">International</h3>
+      <div class="pub-international">
+        <div class="callout">
+          <span class="pill">2025 · Under Review</span>
+          <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
+            <b>Decoupling Augmentation Bias in Prompt Learning for Vision-Language Models,</b> <i>Pattern Recognition</i>, 2025.</p>
+        </div>
 
-      <div class="callout">
-        <span class="pill">2025 · Under Review</span>
-        <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
-          <b>Decoupling Augmentation Bias in Prompt Learning for Vision-Language Models,</b> <i>Pattern Recognition</i>, 2025.</p>
-      </div>
-
-      <div class="callout">
-        <span class="pill">2024</span>
-        <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
-          <b>AAPL: Adding Attributes to Prompt Learning for Vision-Language Models,</b>
-          <i>CVPR Workshops</i>, 2024, pp. 1572–1582.</p>
-        <div class="pub-links">
-          <a href="https://arxiv.org/abs/2404.16804" target="_blank">arXiv</a>
-          <a href="https://openaccess.thecvf.com/content/CVPR2024W/PV/papers/Kim_AAPL_Adding_Attributes_to_Prompt_Learning_for_Vision-Language_Models_CVPRW_2024_paper.pdf" target="_blank">CVF Open Access</a>
-          <a href="https://github.com/Gahyeonkim09/AAPL" target="_blank">GitHub</a>
+        <div class="callout">
+          <span class="pill">2024</span>
+          <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
+            <b>AAPL: Adding Attributes to Prompt Learning for Vision-Language Models,</b>
+            <i>CVPR Workshops</i>, 2024, pp. 1572–1582.</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2404.16804" target="_blank">arXiv</a>
+            <a href="https://openaccess.thecvf.com/content/CVPR2024W/PV/papers/Kim_AAPL_Adding_Attributes_to_Prompt_Learning_for_Vision-Language_Models_CVPRW_2024_paper.pdf" target="_blank">CVF Open Access</a>
+            <a href="https://github.com/Gahyeonkim09/AAPL" target="_blank">GitHub</a>
+          </div>
         </div>
       </div>
 
@@ -345,5 +357,10 @@
       </ul>
     </section>
   </main>
+
+  <footer>
+    <p><em>* Unauthorized use or misuse of personal information is strictly prohibited. *</em></p>
+    <p>I certify that this vitae is accurate and complete. — Sep. 16th, 2025 (latest update)</p>
+  </footer>
 </body>
 </html>
