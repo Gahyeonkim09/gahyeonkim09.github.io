@@ -12,15 +12,25 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.6}
-    header{padding:2.5rem 1rem;text-align:center;background:#111827;color:#fff}
-    header h1{margin:0;font-size:2rem}
-    header p{margin:.4rem 0 0;color:#cbd5e1}
 
-    /* ⬆️ 본문 폭 넓힘 (기존 960 → 1180px) */
-    main{max-width:1180px;margin:0 auto;padding:2rem 1rem 3rem}
+    header{padding:2.8rem 1rem;text-align:center;background:#111827;color:#fff}
+    header h1{margin:0;font-size:2.2rem}          /* H1 조금 키움 */
+    header p{margin:.45rem 0 0;color:#cbd5e1}
+
+    /* 본문 중앙정렬 + 큰화면에서 TOC와 겹치지 않게 폭 계산 */
+    main{
+      width:100%;
+      max-width:1180px;                         /* 기본 최대 폭 */
+      margin:0 auto;
+      padding:2rem 1rem 3rem;
+    }
+    @media(min-width:1101px){
+      main{ max-width:min(1180px, calc(100vw - 240px)); } /* 240px = TOC 폭+여백 */
+    }
 
     section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.25rem 1rem;margin-top:1rem}
-    h2{margin:0 0 .75rem;font-size:1.15rem}
+    h2{margin:0 0 .75rem;font-size:1.3rem}      /* H2 조금 키움 */
+    h3{margin:.2rem 0 .6rem;font-size:1.08rem}  /* H3 조금 키움 */
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
     ul{margin:.25rem 0 0;padding-left:1.2rem}
@@ -41,39 +51,44 @@
     /* ===== Intro Row: 좌측(사진+버튼) / 우측(Introduction) ===== */
     #intro{padding:1.25rem}
     .profile-grid{
-      display:grid;gap:1.25rem;align-items:start;
+      display:grid;gap:1.25rem;
       grid-template-columns:1fr; /* 모바일: 1컬럼 */
+      align-items:start;
     }
     @media(min-width:900px){
-      .profile-grid{grid-template-columns:320px 1fr} /* 데스크톱: 좌 320px, 우 가변 */
+      .profile-grid{
+        grid-template-columns:320px 1fr;   /* 좌측 고정폭, 우측 가변 */
+        align-items:center;                /* 두 컬럼 수직 중앙정렬 */
+      }
     }
 
     .profile-left{
       display:flex;flex-direction:column;align-items:center;gap:1rem;
       padding:1rem;border:1px solid var(--border);border-radius:14px;background:#fcfcff;
     }
-    /* ⬆️ 사진 더 크게 (기존 120 → 220px) */
+    /* 사진: 네모(라운드 12px), 크기는 유지 */
     .avatar{
-      width:220px;height:220px;border-radius:50%;object-fit:cover;
-      border:2px solid var(--border);box-shadow:var(--shadow)
+      width:220px;height:220px;border-radius:12px;object-fit:cover;
+      border:1px solid var(--border);box-shadow:var(--shadow)
     }
+    /* Download CV 버튼: lightgray */
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-      width:100%;padding:.7rem 1rem;border-radius:999px;border:none;cursor:pointer;
-      background:var(--accent);color:#fff;font-weight:700;text-decoration:none;
-      box-shadow:0 6px 16px rgba(15,98,254,.18)
+      width:100%;padding:.7rem 1rem;border-radius:10px;border:1px solid #d1d5db;cursor:pointer;
+      background:#e5e7eb;color:#111827;font-weight:700;text-decoration:none;
     }
-    .btn:hover{filter:brightness(.96)}
-    .btn:focus{outline:3px solid rgba(15,98,254,.35);outline-offset:2px}
+    .btn:hover{background:#d1d5db}
+    .btn:focus{outline:3px solid rgba(17,24,39,.25);outline-offset:2px}
+
     .profile-right p{margin:.35rem 0}
 
-    /* ===== Floating TOC (작게 유지) ===== */
+    /* ===== Floating TOC (작게) ===== */
     .toc{
       position:fixed;right:12px;top:84px;width:200px;max-height:68vh;overflow:auto;
       background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);
       padding:.6rem .6rem;font-size:.9rem
     }
-    .toc h3{margin:0 0 .3rem;font-size:.92rem}
+    .toc h3{margin:0 0 .3rem;font-size:.95rem}
     .toc a{display:block;padding:.25rem .4rem;border-radius:8px;color:var(--text);text-decoration:none;border:1px solid transparent}
     .toc a:hover{background:#f3f4f6;border-color:#e5e7eb}
     .toc a.active{background:#eef2ff;border-color:#e0e7ff;color:#3730a3}
@@ -91,12 +106,12 @@
     }
     @media(min-width:1101px){
       .toc-toggle{display:none}
-      /* 본문 폭이 넓어졌지만 TOC 폭은 200이므로 우측 여백 260 유지 */
-      main{padding-right:260px}
+      /* main은 중앙정렬 상태 유지 (padding-right 제거) */
     }
 
     /* Footer */
-    footer{max-width:1180px;margin:1.5rem auto 3rem;padding:0 1rem;color:var(--muted);font-size:.92rem;text-align:center}
+    footer{max-width:1180px;margin:1.5rem auto 3rem;padding:0 1rem;color:var(--muted);font-size:.95rem;text-align:center}
+    @media(min-width:1101px){ footer{ max-width:min(1180px, calc(100vw - 240px)); } }
     footer p{margin:.25rem 0}
     footer em{font-style:italic}
 
@@ -138,7 +153,7 @@
   <button class="toc-toggle" aria-expanded="false" aria-controls="toc">☰ Map</button>
 
   <main>
-    <!-- ⬇️ 한 섹션 안에서 2컬럼: 좌측(사진+버튼) / 우측(Introduction) -->
+    <!-- Intro: 좌측(사진+버튼) / 우측(Introduction) -->
     <section id="intro">
       <div class="profile-grid">
         <div class="profile-left">
@@ -187,7 +202,6 @@
     <!-- Education -->
     <section id="education">
       <h2>🎓 Education</h2>
-
       <div class="edu-item">
         <div><b>M.S., Energy AI Track, Energy Engineering</b></div>
         <div><a href="https://kentech.ac.kr/main.do" target="_blank">Korea Institute of Energy Technology</a>
@@ -195,7 +209,6 @@
         <div class="subtle">(G.P.A. 3.80/4.3)</div>
         <div class="subtle"><em>Advisor: Prof. <a href="https://view.kentech.ac.kr/prof" target="_blank">Seokju Lee</a></em></div>
       </div>
-
       <div class="edu-item">
         <div><b>B.S., Applied Physics</b></div>
         <div><a href="https://www.hanyang.ac.kr/web/eng/home" target="_blank">Hanyang University ERICA</a>
@@ -208,7 +221,6 @@
     <!-- Publications -->
     <section id="publications">
       <h2>📝 Publications</h2>
-
       <h3 class="subtle">International</h3>
       <div class="pub-international">
         <div class="callout">
@@ -216,7 +228,6 @@
           <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
             <b>Decoupling Augmentation Bias in Prompt Learning for Vision-Language Models,</b> <i>Pattern Recognition</i>, 2025.</p>
         </div>
-
         <div class="callout">
           <span class="pill">2024</span>
           <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
@@ -244,13 +255,11 @@
     <!-- Research Experiences -->
     <section id="research-experiences">
       <h2>💻 Research Experiences</h2>
-
       <div class="edu-item">
         <div class="role">Postgraduate Researcher (M.S.)</div>
         <div class="where"><a href="https://etri-visualintelligence.github.io/" target="_blank">ETRI Visual Intelligence Lab</a>, Korea
           <span class="dash">|</span> Sep 2025 – present</div>
       </div>
-
       <div class="edu-item">
         <div class="role">Postgraduate Researcher (M.S.)</div>
         <div class="where"><a href="https://view.kentech.ac.kr/" target="_blank">VIEW LAB (Visual Intelligence &amp; Energy Wise Lab)</a>, KENTECH, Korea
@@ -260,7 +269,6 @@
           <li>Developed prompt learning strategies bridging off-the-shelf VLMs and LLMs.</li>
         </ul>
       </div>
-
       <div class="edu-item">
         <div class="role">Undergraduate Student Researcher</div>
         <div class="where"><a href="http://csg.hanyang.ac.kr/" target="_blank">CSG (Complex System Group)</a>, Hanyang University ERICA, Korea
@@ -285,7 +293,6 @@
     <!-- Trainings & Experiences -->
     <section id="trainings">
       <h2>👩‍🏫 Trainings &amp; Experiences</h2>
-
       <div class="edu-item">
         <div class="role">K-Digital Training Natural Language Processing (NLP)</div>
         <div class="where"><a href="https://sites.google.com/site/jaegulchoo/" target="_blank">KAIST</a> (Prof. Jaegul Choo) &amp; <a href="https://blog.goorm.io" target="_blank">goorm Inc.</a>, Korea
@@ -312,7 +319,7 @@
               <li><b>Project 3 — EN↔KR Translator</b>: Demo &amp; slides.
                 <div class="pub-links">
                   <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/99bb50e7-7f93-46c6-bce9-17d3e5d763a0/%E1%84%87%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%A8%E1%84%80%E1%85%B5_%E1%84%86%E1%85%A9%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%86%BC.mp4" target="_blank">Demo (MP4)</a>
-                  <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/d39447ae-e199-4fe5-9e45-53c0d81e8d57/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%85%90%E1%84%90%E1%85%B33_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%84%90%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
+                  <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/d39447ae-e199-4fe5-9e45-53c0d81e8d57/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%85%90%E1%84%90%E1%85%B33_%E1%84%87%E1%85%A1%E1%86%AF%E1%85%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
                 </div>
               </li>
             </ul>
@@ -347,21 +354,11 @@
           </div>
         </details>
       </div>
-
-      <div class="edu-item">
-        <div class="role">Data Science for Machine Learning, Global Online Module</div>
-        <div class="where">Department of Computer Science, <a href="https://www.gsu.edu/program/computer-science-bs/?utm_source=program-list&utm_medium=College%20of%20Arts%20&%20Sciences&utm_campaign=program-page&utm_term=Bachelor%27s," target="_blank">Georgia State University</a>, USA
-          <span class="dash">|</span> Oct 2021</div>
-        <ul>
-          <li>Hands-on training in NumPy, SciPy, and OpenCV with team collaboration on data analysis.</li>
-        </ul>
-      </div>
     </section>
 
     <!-- Projects & Grants -->
     <section id="projects">
       <h2>🧪 Projects &amp; Grants</h2>
-
       <div class="edu-item">
         <div class="role">Project Leading Researcher</div>
         <div class="where"><a href="https://view.kentech.ac.kr/" target="_blank">VIEW LAB (Visual Intelligence &amp; Energy Wise Lab)</a>, KENTECH, Korea
@@ -372,7 +369,6 @@
           <li>Collected paired data via dynamic web crawling from <a href="https://www.myphysicslab.com/" target="_blank">myphysicslab.com</a>; collaborated with its developer, Erik Neumann.</li>
         </ul>
       </div>
-
       <div class="edu-item">
         <div class="role">Project Affiliated Researcher</div>
         <div class="where"><a href="https://view.kentech.ac.kr/" target="_blank">VIEW LAB (Visual Intelligence &amp; Energy Wise Lab)</a>, KENTECH, Korea
@@ -388,7 +384,6 @@
     <!-- Awards -->
     <section id="awards">
       <h2>🏆 Awards</h2>
-
       <div class="edu-item">
         <div class="role">Capstone Design Contest — Scientific Technical Award (2nd place)</div>
         <div class="where">Hanyang University (Seoul &amp; ERICA), Korea
@@ -398,7 +393,6 @@
           <li>Poster (KR): <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/ce3b91c0-3ed5-41ad-816d-fea561747bd0/%E1%84%8F%E1%85%A2%E1%86%B8%E1%84%89%E1%85%B3%E1%84%90%E1%85%A9%E1%86%AB_%E1%84%91%E1%85%A9%E1%84%89%E1%85%B3%E1%85%B3_%E1%84%80%E1%85%B5%E1%86%B7%E1%84%80%E1%85%A1%E1%84%92%E1%85%A7%E1%86%AB.pdf" target="_blank">PDF</a></li>
         </ul>
       </div>
-
       <div class="edu-item">
         <div class="role">Software Hackathon — Bronze Award (3rd place)</div>
         <div class="where">Hanyang University ERICA, Korea
