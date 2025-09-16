@@ -1,90 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Gahyeon Kim | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #6b7280;
+      --accent: #0f62fe;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      background: #fafafa;
-      color: #333;
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: var(--bg); color: var(--text); line-height: 1.6;
     }
     header {
-      background: #222;
-      color: #fff;
-      padding: 2rem 0;
-      text-align: center;
+      padding: 2.5rem 1rem; text-align: center; background: #111827; color: #fff;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: .4rem 0 0; color: #cbd5e1; }
+    main { max-width: 960px; margin: 0 auto; padding: 2rem 1rem 3rem; }
     section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.25rem 1rem; margin-top: 1rem;
     }
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.5rem;
+    h2 { margin: 0 0 .75rem; font-size: 1.15rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { margin: .25rem 0 0; padding-left: 1.2rem; }
+    li { margin: .35rem 0; }
+    .subtle { color: var(--muted); }
+    .grid-2 { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 860px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+    .pill {
+      display: inline-block; padding: .3rem .6rem; border-radius: 999px;
+      background: #eef2ff; color: #3730a3; font-size: .85rem; border: 1px solid #e0e7ff;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: #fff;
-      margin-top: 2rem;
+    .callout {
+      border-left: 4px solid #dbeafe; background: #f8fbff; padding: .8rem 1rem; border-radius: 10px;
     }
+    .pub-links { margin-top: .4rem; font-size: .95rem; }
+    .pub-links a { margin-right: .8rem; }
+    .edu-item { margin-bottom: .9rem; }
+    .role { font-weight: 600; }
+    .where { color: var(--muted); }
+    .dash { color: var(--muted); padding: 0 .25rem; }
   </style>
 </head>
 <body>
   <header>
-    <h1>👩‍💻 Gahyeon Kim</h1>
-    <p>Computer Vision & Multimodal AI Researcher</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <h1>👩‍💻 Gahyeon (María) Kim</h1>
+    <p>Computer Vision · Multimodal AI · Prompt Learning</p>
   </header>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-    Hello, I am Gahyeon (María) Kim, based in Anyang (Seoul metropolitan area), South Korea. 
-    As a computer vision specialist, I focus on prompt learning using features from pre-trained language and vision models for various downstream tasks. 
-    Specializing in multi-modal learning and computer vision, I develop data-efficient models using prompt learning and pre-trained LLMs and VLMs to improve generalization on complex data. Recently, I explored modality-free learning, training models with web-crawled physics simulator images via text-based interfaces. Passionate about cross-disciplinary research, I tackle cutting-edge AI challenges in multi-modal learning and cross-domain adaptation, aiming to push the boundaries of AI perception and reasoning.
-    </p>
-  </section>
+  <main>
+    <!-- Intro -->
+    <section id="intro">
+      <h2>👋 Introduction</h2>
+      <p>
+        Hello, I am <b>Gahyeon (María) Kim</b>, based in Anyang (Seoul metropolitan area), South Korea.
+        As a computer vision specialist, I focus on prompt learning using features from pre-trained language and vision models for various downstream tasks.
+      </p>
+      <p>
+        Specializing in multi-modal learning and computer vision, I develop data-efficient models using prompt learning and pre-trained LLMs and VLMs to improve generalization on complex data.
+        Recently, I explored modality-free learning, training models with web-crawled physics simulator images via text-based interfaces.
+      </p>
+      <p>
+        Passionate about cross-disciplinary research, I tackle cutting-edge AI challenges in multi-modal learning and cross-domain adaptation, aiming to push the boundaries of AI perception and reasoning.
+      </p>
+    </section>
 
-  <section id="research">
-    <h2>Research Projects</h2>
-    <ul>
-      <li><b>AAPL:</b> Adding Attributes to Prompt Learning (CVPRW’24, journal revision ongoing)</li>
-      <li><b>LIVE:</b> Learning Interactive Visuomotor Embedding via Vision-Language Models (NRF-funded)</li>
-    </ul>
-  </section>
+    <!-- Personal Info + Research Interests -->
+    <div class="grid-2">
+      <section id="personal-info">
+        <h2>☎️ Personal Information</h2>
+        <ul>
+          <li>📧 Email: <a href="mailto:gahyeon@kentech.ac.kr">gahyeon@kentech.ac.kr</a></li>
+          <li>👾 GitHub: <a href="https://github.com/Gahyeonkim09" target="_blank">github.com/Gahyeonkim09</a></li>
+          <li>📥 LinkedIn: <a href="https://www.linkedin.com/in/gahyeon-kim-a86710241/" target="_blank">linkedin.com/in/gahyeon-kim-a86710241</a></li>
+          <li>📚 Google Scholar: <a href="https://scholar.google.com/citations?user=7p0Fd-oAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+        </ul>
+      </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:gahyeon.kim@email.com">gahyeon.kim@email.com</a></p>
-    <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
-    <p>Google Scholar: <a href="https://scholar.google.com" target="_blank">Scholar Profile</a></p>
-  </section>
+      <section id="research-interest">
+        <h2>🔍 Research Interests</h2>
+        <p>
+          Deep Learning, Computer Vision, Natural Language Processing, Multi-modal Learning,
+          Large Language Models, Vision-Language Models, Prompt Learning, Modality-free Learning,
+          Zero-shot &amp; Few-shot Learning
+        </p>
+      </section>
+    </div>
 
-  <footer>
-    <p>© 2025 Gahyeon Kim</p>
-  </footer>
+    <!-- Education -->
+    <section id="education">
+      <h2>🎓 Education</h2>
+
+      <div class="edu-item">
+        <div><b>M.S., Energy AI Track, Energy Engineering</b></div>
+        <div><a href="https://kentech.ac.kr/main.do" target="_blank">Korea Institute of Energy Technology</a>
+          <span class="dash">|</span> Mar 2023 – Feb 2025</div>
+        <div class="subtle">(G.P.A. 3.80/4.3)</div>
+        <div class="subtle"><em>Advisor: Prof. <a href="https://view.kentech.ac.kr/prof" target="_blank">Seokju Lee</a></em></div>
+      </div>
+
+      <div class="edu-item">
+        <div><b>B.S., Applied Physics</b></div>
+        <div><a href="https://www.hanyang.ac.kr/web/eng/home" target="_blank">Hanyang University ERICA</a>
+          <span class="dash">|</span> Mar 2019 – Feb 2023</div>
+        <div class="subtle">(G.P.A. 3.86/4.5) · Cum Laude</div>
+        <div class="subtle"><em>Advisor: Prof. <a href="http://csg.hanyang.ac.kr/" target="_blank">Seungwoo Son</a></em></div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>📝 Publications</h2>
+
+      <h3 class="subtle">International</h3>
+
+      <div class="callout">
+        <span class="pill">2025 · Under Review</span>
+        <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
+          <b>Decoupling Augmentation Bias in Prompt Learning for Vision-Language Models,</b> <i>Pattern Recognition</i>, 2025.</p>
+      </div>
+
+      <div class="callout">
+        <span class="pill">2024</span>
+        <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
+          <b>AAPL: Adding Attributes to Prompt Learning for Vision-Language Models,</b>
+          <i>CVPR Workshops</i>, 2024, pp. 1572–1582.</p>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2404.16804" target="_blank">arXiv</a>
+          <a href="https://openaccess.thecvf.com/content/CVPR2024W/PV/papers/Kim_AAPL_Adding_Attributes_to_Prompt_Learning_for_Vision-Language_Models_CVPRW_2024_paper.pdf" target="_blank">CVF Open Access</a>
+          <a href="https://github.com/Gahyeonkim09/AAPL" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <h3 class="subtle" style="margin-top:1rem;">Domestic (Korean)</h3>
+      <div class="callout">
+        <span class="pill">2024</span>
+        <p><b>거대 시각-언어 모델 기반의 이미지 증강을 활용한 프롬프트 학습</b>,
+          <i>The 36th Workshop on Image Processing and Image Understanding (IPIU)</i>, Jan 2024.</p>
+        <div class="pub-links">
+          <a href="http://ipiu.or.kr/?act=board&bbs_code=IPIU2024_papers&bbs_mode=view&bbs_seq=61" target="_blank">Paper (P1-106)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Experiences -->
+    <section id="research-experiences">
+      <h2>💻 Research Experiences</h2>
+
+      <div class="edu-item">
+        <div class="role">Postgraduate Researcher (M.S.)</div>
+        <div class="where"><a href="https://etri-visualintelligence.github.io/" target="_blank">ETRI Visual Intelligence Lab</a>, Korea
+          <span class="dash">|</span> Sep 2025 – present</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="role">Postgraduate Researcher (M.S.)</div>
+        <div class="where"><a href="https://view.kentech.ac.kr/" target="_blank">VIEW LAB (Visual Intelligence &amp; Energy Wise Lab)</a>, KENTECH, Korea
+          <span class="dash">|</span> Mar 2025 – Aug 2025</div>
+        <ul>
+          <li>Participated in “<i>LIVE: Learning Interactive Visuomotor Embedding through Vision-Language Model</i>” as an affiliated researcher.</li>
+          <li>Developed prompt learning strategies bridging off-the-shelf VLMs and LLMs.</li>
+        </ul>
+      </div>
+
+      <div class="edu-item">
+        <div class="role">Undergraduate Student Researcher</div>
+        <div class="where"><a href="http://csg.hanyang.ac.kr/" target="_blank">CSG (Complex System Group)</a>, Hanyang University ERICA, Korea
+          <span class="dash">|</span> Sep 2021 – Jun 2023</div>
+        <ul>
+          <li>Conducted a capstone design project on neural style transfer; joined weekly lab meetings for progress sharing and feedback.</li>
+          <li>Attended seminars on GNN-based modeling of COVID-19 spread and CNN-based semiconductor defect detection/analysis.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Academic Services -->
+    <section id="services">
+      <h2>🧑‍⚖️ Academic Services — Reviewer</h2>
+      <ul>
+        <li>IEEE Transactions on Image Processing (TIP)</li>
+        <li>Engineering Applications of Artificial Intelligence (EAAI), Elsevier</li>
+        <li>Expert Systems With Applications (ESWA), Elsevier</li>
+      </ul>
+    </section>
+
+    <!-- Trainings & Experiences -->
+    <section id="trainings">
+      <h2>👩‍🏫 Trainings &amp; Experiences</h2>
+
+      <div class="edu-item">
+        <div class="role">K-Digital Training Natural Language Processing (NLP)</div>
+        <div class="where"><a href="https://sites.google.com/site/jaegulchoo/" target="_blank">KAIST</a> (Prof. Jaegul Choo) &amp; <a href="https://blog.goorm.io" target="_blank">goorm Inc.</a>, Korea
+          <span class="dash">|</span> Jul 2022 – Nov 2022</div>
+        <ul>
+          <li>Completed courses in Python, Linear Algebra, Deep Learning, and Natural Language Processing.</li>
+          <li>Led three team projects: (1) Text sentiment classification, (2) Korean MRC (QA), (3) Cultural background–aware Korean–English translator.</li>
+          <li><b>Accomplishments</b></li>
+          <ul>
+            <li><b>Project 1 – Sentiment Classification</b>: Parameter tuning &amp; ensemble; additional pretrained models (RoBERTa, ELECTRA). Ranked 3rd/8 teams.
+              <div class="pub-links">
+                <a href="https://colab.research.google.com/drive/19mFqV_DPbhZ5-0YOim7bKOPCxNYvU69z?usp=sharing" target="_blank">Colab</a>
+                <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/a10d98ee-9f40-4b1c-b66e-19a6ac6de7a8/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B31_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%84%90%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
+              </div>
+            </li>
+            <li><b>Project 2 – Korean MRC (QA)</b>: Pretrained T5 + extra loss (Levenshtein, cosine sim). Ranked 2nd/8 teams.
+              <div class="pub-links">
+                <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/dc24a0e8-c457-4002-9588-b37d8a6a6412/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B32_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%84%90%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
+              </div>
+            </li>
+            <li><b>Project 3 – EN↔KR Translator for International Students</b>: Demo video &amp; slides.
+              <div class="pub-links">
+                <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/99bb50e7-7f93-46c6-bce9-17d3e5d763a0/%E1%84%87%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%A8%E1%84%80%E1%85%B5_%E1%84%86%E1%85%A9%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF_%E1%84%89%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%86%BC.mp4" target="_blank">Demo (MP4)</a>
+                <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/d39447ae-e199-4fe5-9e45-53c0d81e8d57/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B33_%E1%84%87%E1%85%A1%E1%86%AF%E1%84%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_1%E1%84%90%E1%85%B5%E1%86%B7.pdf" target="_blank">Presentation (KR)</a>
+              </div>
+            </li>
+          </ul>
+        </ul>
+      </div>
+
+      <div class="edu-item">
+        <div class="role">Hana Social Venture Academy</div>
+        <div class="where"><a href="https://www.hanapoweron.com/intro" target="_blank">Hana Financial Group</a>, Korea
+          <span class="dash">|</span> Dec 2021 – Feb 2022</div>
+        <ul>
+          <li>Built mobile app &amp; SaaS for “Ddaom,” a free counseling matching platform for teens and government-affiliated institutions.</li>
+          <li>Developed a chatbot with 1,100 interactions in 2 weeks; conducted 600+ user interviews.</li>
+          <li>Received a $30,000 investment proposal via VC pitching.</li>
+          <li><b>Accomplishments</b></li>
+          <ul>
+            <li>400 survey responses; 40 face-to-face interviewees in a week.</li>
+            <li>2nd place in mid-term performance sharing.</li>
+            <li>IR pitching videos:
+              <a href="https://youtu.be/ci97u39_pwc" target="_blank">Opening</a>,
+              <a href="https://youtu.be/FCync1TqXZY?si=DbwBfUTlPn0OdbvE" target="_blank">MAPP IR</a>
+            </li>
+            <li>Presentations (KR):
+              <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/bf60620e-f8d1-4ea7-a9d9-9d0ee1e4d517/%E1%84%8C%E1%85%AE%E1%86%BC%E1%84%80%E1%85%A1%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%AC_%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_MAPP.pdf" target="_blank">Mid-term</a>,
+              <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/e7cc5190-6b3a-4fe5-9561-7c1eda4425c3/%E1%84%87%E1%85%A1%E1%86%AF%E1%85%91%E1%85%AD%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD_MAPP.pdf" target="_blank">Final</a>
+            </li>
+          </ul>
+        </ul>
+      </div>
+
+      <div class="edu-item">
+        <div class="role">Data Science for Machine Learning, Global Online Module</div>
+        <div class="where">Department of Computer Science, <a href="https://www.gsu.edu/program/computer-science-bs/?utm_source=program-list&utm_medium=College%20of%20Arts%20&%20Sciences&utm_campaign=program-page&utm_term=Bachelor%27s," target="_blank">Georgia State University</a>, USA
+          <span class="dash">|</span> Oct 2021</div>
+        <ul>
+          <li>Hands-on training in NumPy, SciPy, and OpenCV with team collaboration on data analysis.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects & Grants -->
+    <section id="projects">
+      <h2>🧪 Projects &amp; Grants</h2>
+
+      <div class="edu-item">
+        <div class="role">Project Leading Researcher</div>
+        <div class="where"><a href="https://view.kentech.ac.kr/" target="_blank">VIEW LAB (Visual Intelligence &amp; Energy Wise Lab)</a>, KENTECH, Korea
+          <span class="dash">|</span> Sep 2024 – Feb 2025</div>
+        <ul>
+          <li>3-year grant (2024–2027) for “LIVE: Learning Interactive Visuomotor Embedding through Vision-Language Model,” supported by the <a href="https://www.nrf.re.kr/eng/main" target="_blank">NRF</a> of Korea.</li>
+          <li>Designed &amp; executed proposal: learning temporal patterns in physics simulation frames with text-based training interfaces and contrastive image–text alignment.</li>
+          <li>Collected paired data via dynamic web crawling from <a href="https://www.myphysicslab.com/" target="_blank">myphysicslab.com</a>; collaborated with its developer, Erik Neumann.</li>
+        </ul>
+      </div>
+
+      <div class="edu-item">
+        <div class="role">Project Affiliated Researcher</div>
+        <div class="where"><a href="https://view.kentech.ac.kr/" target="_blank">VIEW LAB (Visual Intelligence &amp; Energy Wise Lab)</a>, KENTECH, Korea
+          <span class="dash">|</span> Mar 2023 – Aug 2024</div>
+        <ul>
+          <li><a href="https://www.nrf.re.kr/eng/main" target="_blank">NRF</a> grant: Generalization &amp; Robustness of Learning-Based 3D Visual Perception (MSIT).</li>
+          <li><a href="http://iitp.kr/en/main.it" target="_blank">IITP</a> grant: Innovative Human Resource Development for Local Intellectualization (MSIT).</li>
+          <li><a href="https://www.kiat.or.kr/eng/user/main.do" target="_blank">KIAT</a> grant: funded by MOTIE, Korea.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards">
+      <h2>🏆 Awards</h2>
+
+      <div class="edu-item">
+        <div class="role">Capstone Design Contest — Scientific Technical Award (2nd place)</div>
+        <div class="where">Hanyang University (Seoul &amp; ERICA), Korea
+          <span class="dash">|</span> May 2022</div>
+        <ul>
+          <li>Neural Style Transfer project using a fine-tuned ResNet18 (ImageNet) to improve style classification by 4.6% and enhance stylization quality.</li>
+          <li>Poster (KR): <a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/4c44f20d-aeb2-44e1-a6fc-1f7b3772cb8d/ce3b91c0-3ed5-41ad-816d-fea561747bd0/%E1%84%8F%E1%85%A2%E1%86%B8%E1%84%89%E1%85%B3%E1%84%90%E1%85%A9%E1%86%AB%E1%84%83%E1%85%B5%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AB_%E1%84%91%E1%85%A9%E1%84%89%E1%85%B3%E1%85%A5_%E1%84%80%E1%85%B5%E1%86%B7%E1%84%80%E1%85%A1%E1%84%92%E1%85%A7%E1%86%AB.pdf" target="_blank">PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="edu-item">
+        <div class="role">Software Hackathon — Bronze Award (3rd place)</div>
+        <div class="where">Hanyang University ERICA, Korea
+          <span class="dash">|</span> Nov 2019</div>
+        <ul>
+          <li>“Lunchbox of Love” — social impact app prototype for surplus food delivery to seniors via retiree couriers.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section id="languages">
+      <h2>📢 Languages</h2>
+      <ul>
+        <li>🇰🇷 <b>Korean</b> (Native)</li>
+        <li>🇺🇸 <b>English</b> — TOEFL iBT: <b>101/120</b> (R27, L26, S24, W24); TOEIC: <b>855/990</b> (R420, L435)</li>
+        <li>🇪🇸 <b>Spanish</b> (A1) — <a href="https://rm.coe.int/CoERMPublicCommonSearchServices/DisplayDCTMContent?documentId=090000168045bb52" target="_blank">CEFR</a></li>
+        <li>🇯🇵 <b>Japanese</b> (A1) — <a href="https://rm.coe.int/CoERMPublicCommonSearchServices/DisplayDCTMContent?documentId=090000168045bb52" target="_blank">CEFR</a></li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>🎨 Skills</h2>
+      <ul>
+        <li><b>Deep Learning &amp; ML</b>: Python, PyTorch, Bash, NumPy, OpenCV, scikit-learn, Hugging Face (transformers, diffusers), LMs (BERT, T5, LLaMA, GPT), VLMs (LLaVA, BLIP, CLIP)</li>
+        <li><b>App/Web</b>: MySQL, Android Studio (Java), HTML/CSS, Selenium (dynamic crawling), KakaoTalk chatbot</li>
+        <li><b>UI/UX &amp; Illustration</b>: Procreate, Figma, Adobe Illustrator, Adobe XD</li>
+        <li><b>Soft skills</b>: Problem-solving, People insight, Constructive discussion, Team player, Active listening</li>
+      </ul>
+    </section>
+
+    <!-- Free Time -->
+    <section id="free-time">
+      <h2>⏳ Free time interests</h2>
+      <ul>
+        <li>Yoga (Hatha, Vinyasa, Ashtanga) → IG: @yoga._hyeon</li>
+        <li>Reading books → IG: @sat_bookclub</li>
+        <li>Surf &amp; Snowboarding</li>
+        <li>Playing piano</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
