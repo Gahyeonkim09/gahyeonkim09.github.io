@@ -46,6 +46,13 @@
     .role{font-weight:600}
     .where{color:var(--muted)}
     .dash{color:var(--muted);padding:0 .25rem}
+    .meta-note{
+      font-size:.82rem;
+      color:var(--muted);
+      font-weight:500;
+      margin-left:.4rem;
+      white-space:nowrap;
+    }
 
     /* ===== Intro Row: left(photo+button) / right(introduction) ===== */
     #intro{padding:1.25rem}
@@ -151,15 +158,15 @@
     <section id="intro">
       <div class="profile-grid">
         <div class="profile-left">
-          <!-- (1) 사진 넣기:
-               1) images/ 폴더 만들고 그 안에 profile.jpg 넣기
-               2) 파일명이 다르면 아래 src만 바꾸면 됨 -->
+          <!-- 사진 넣는 방법:
+               1) index.html 과 같은 위치에 images 폴더 생성
+               2) 업로드한 jpg 파일을 images/profile.jpg 로 저장
+               3) 파일명이 다르면 아래 src 경로만 바꾸기 -->
           <img class="avatar" src="images/profile.jpg" alt="Portrait of Gahyeon Kim" loading="lazy" />
           <a class="btn" href="cv.pdf" download>⬇️ Download CV</a>
         </div>
         <div class="profile-right">
           <h2>👋 Introduction</h2>
-          <!-- (3) Introduction 교체 -->
           <p>
             Hello, I am <b>Gahyeon (María) Kim</b>, based in Daejeon, South Korea.
             I am currently part of the <b>ETRI Visual Intelligence Research Team</b>, where I work on
@@ -181,7 +188,6 @@
       <section id="personal-info">
         <h2>☎️ Personal Information</h2>
         <ul>
-          <!-- (2) Email 변경 -->
           <li>📧 Email: <a href="mailto:gahyeon@etri.re.kr">gahyeon@etri.re.kr</a></li>
           <li>👾 GitHub: <a href="https://github.com/Gahyeonkim09" target="_blank">github.com/Gahyeonkim09</a></li>
           <li>📥 LinkedIn: <a href="https://www.linkedin.com/in/gahyeon-kim-a86710241/" target="_blank">linkedin.com/in/gahyeon-kim-a86710241</a></li>
@@ -223,12 +229,11 @@
       <h2>📝 Publications</h2>
       <h3 class="subtle">International</h3>
       <div class="pub-international">
-        <!-- (4) Under Review 제거 -> Accepted/Published로 변경 + 링크 추가 -->
         <div class="callout">
           <span class="pill">2025</span>
           <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
             <b>Decoupling Augmentation Bias in Prompt Learning for Vision-Language Models,</b>
-            <i>Pattern Recognition</i>, 2025.</p>
+            <i>Pattern Recognition</i><span class="meta-note">IF: 7.6</span>, 2025.</p>
           <div class="pub-links">
             <a href="https://arxiv.org/abs/2511.03367" target="_blank">arXiv</a>
             <a href="https://www.sciencedirect.com/science/article/pii/S0031320325012932?dgcid=rss_sd_all" target="_blank">Journal</a>
@@ -239,7 +244,7 @@
           <span class="pill">2024</span>
           <p><b>KIM, Gahyeon</b>; KIM, Sohee; LEE, Seokju.
             <b>AAPL: Adding Attributes to Prompt Learning for Vision-Language Models,</b>
-            <i>CVPR Workshops</i>, 2024, pp. 1572–1582.</p>
+            <i>CVPR Workshops</i><span class="meta-note">citation: 33회</span>, 2024, pp. 1572–1582.</p>
           <div class="pub-links">
             <a href="https://arxiv.org/abs/2404.16804" target="_blank">arXiv</a>
             <a href="https://openaccess.thecvf.com/content/CVPR2024W/PV/papers/Kim_AAPL_Adding_Attributes_to_Prompt_Learning_for_Vision-Language_Models_CVPRW_2024_paper.pdf" target="_blank">CVF Open Access</a>
@@ -249,7 +254,18 @@
       </div>
 
       <h3 class="subtle" style="margin-top:1rem;">Domestic (Korean)</h3>
+
       <div class="callout">
+        <span class="pill">2026</span>
+        <p><b>김가현</b>; 박민호; 강동오.
+          <b>One-step diffusion 기반 화재장면 생성을 통한 시뮬레이터 데이터 개선 및 화재 인식 성능 분석</b>,
+          <i>KICS 한국통신학회 동계종합학술발표회</i>, 2026.</p>
+        <div class="pub-links">
+          <a href="https://conf.kics.or.kr/2026w/board/article/4986" target="_blank">KICS 2026 proceedings 29A-P-4</a>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:1rem;">
         <span class="pill">2024</span>
         <p><b>거대 시각-언어 모델 기반의 이미지 증강을 활용한 프롬프트 학습</b>,
           <i>The 36th Workshop on Image Processing and Image Understanding (IPIU)</i>, Jan 2024.</p>
@@ -263,8 +279,6 @@
     <section id="research-experiences">
       <h2>💻 Research Experiences</h2>
 
-      <!-- (5) Postgraduate Researcher (M.S.) -> Researcher
-               + 하단 1줄 bullet 추가 -->
       <div class="edu-item">
         <div class="role">Researcher</div>
         <div class="where"><a href="https://etri-visualintelligence.github.io/" target="_blank">ETRI Visual Intelligence Lab</a>, Korea
@@ -455,7 +469,6 @@
   <!-- Footer -->
   <footer>
     <p><em>* Unauthorized use or misuse of personal information is strictly prohibited. *</em></p>
-    <!-- (6) 오늘 날짜로 변경: 2025-12-01 -->
     <p>I certify that this vitae is accurate and complete. — Dec. 1st, 2025 (latest update)</p>
   </footer>
 
